@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "address.sso.login",
+    "type": "java.lang.String",
+    "description": "A description for 'address.sso.login'"
+  },
+  {
+    "name": "address.sso.logout",
+    "type": "java.lang.String",
+    "description": "A description for 'address.sso.logout'"
+  },
+  {
+    "name": "cookie.domain",
+    "type": "java.lang.String",
+    "description": "A description for 'cookie.domain'"
+  }
+]}

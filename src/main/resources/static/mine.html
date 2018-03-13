@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>俱乐部网站</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+		<script src="js/base64.js"></script>
+		<script src="js/my.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div id="menu" style="margin-bottom:20px"></div>
+			<script type="text/javascript">loadmenu('#mine');</script>
+			<hr><h1>会员中心</h1><hr>
+			<ul class="nav nav-pills">
+			  <li role="presentation"><a href="loginout.html">签退</a></li>
+			</ul>
+			<hr>
+			<span id="username"></span> 你好!
+			
+			<ul class="nav nav-pills">
+			  <li role="presentation"><a id='logoutBtn' href="javascript:void(0);">通用交易验证登录权限</a></li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			$('#username').text(getUserNameFromToken());
+			
+			$("#logoutBtn").click(function(){
+				$.get("/portal/commonTrans",function(result){
+					if(result.code==0){
+						alert('token验证成功');
+						alert(getUserNameFromToken());
+					}else{
+						alert('token验证失败');
+					}
+				});
+			});
+		</script>
+	</body>
+</html>

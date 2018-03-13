@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>俱乐部网站</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+		<script src="js/base64.js"></script>
+		<script src="js/my.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div id="menu" style="margin-bottom:20px"></div>
+			<script type="text/javascript">loadmenu('#train');</script>
+			<hr><h1>培训系统</h1><hr>
+			
+			<span id="username"></span> 你好!
+		</div>
+		<script type="text/javascript">
+			$('#username').text(getUserNameFromToken());
+		</script>
+	</body>
+</html>

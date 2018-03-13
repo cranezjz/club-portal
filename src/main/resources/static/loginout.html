@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>俱乐部完整</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+		<script src="js/base64.js"></script>
+		<script src="js/my.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div id="menu" style="margin-bottom:20px"></div>
+			<script type="text/javascript">loadmenu('#mine');</script>
+			<hr><h1>签退页面</h1><hr>
+			token：<span id="token"></span>
+			<hr>
+			<span id="username"></span> 你好!
+			<hr>
+			
+			<form action="portal/loginout" method="post">
+			  <button type="button" class="btn btn-default" id="logoutBtn" onclick="">签退</button>
+			</form>
+		</div>
+		<script type="text/javascript">
+			function loadToken(){
+				var token = $.cookie('g_token');
+				if(token=='undefine' || token==''){
+					$('#logoutBtn').hide();
+					return;
+				}
+				$('#username').text(getUserNameFromToken());
+			}
+			loadToken();
+			$("#logoutBtn").click(function(){
+				$.get("portal/loginout",function(result){
+					if(result.code==0){
+						alert('签退成功');
+						loadToken();
+					}else{
+						alert('签退失败');
+					}
+				});
+			});
+		</script>
+	</body>
+</html>

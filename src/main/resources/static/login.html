@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>俱乐部完整</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+		<script src="js/base64.js"></script>
+		<script src="js/my.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div id="menu" style="margin-bottom:20px"></div>
+			<script type="text/javascript">loadmenu('#login');</script>
+			<hr><h1>登录页</h1><hr>
+			<form action="portal/login" method="post">
+			  <div class="form-group">
+			    <label for="username">Email address</label>
+			    <input type="text" class="form-control" id="username" name="username" placeholder="username">
+			  </div>
+			  <div class="form-group">
+			    <label for="password">Password</label>
+			    <input type="password" class="form-control" id="password" name="password" placeholder="password">
+			  </div>
+			  <button type="button" id='btn1' class="btn btn-default">Submit</button>
+			</form>
+			
+			<div id='show'></div>
+		</div>
+		<script type="text/javascript">
+			$("#btn1").click(function(){
+				$.post("portal/login",{'username':$("#username").val()},function(result){
+					if(result.code='0'){
+						$("#show").text(getUserNameFromToken());
+					}else{
+						alert('失败');
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
